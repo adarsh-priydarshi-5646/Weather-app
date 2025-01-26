@@ -183,6 +183,23 @@
                     <div class="icon"><img src="${iconUrl}" alt="${condition.text}"></div>
                     <p>Temperature: <strong>${temp_c}°C</strong></p>
                     <p>Condition: <strong>${condition.text}</strong></p>
+                                        <div class="forecast">
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/6198/6198743.png" alt="Sunny">
+                            <p>15:00</p>
+                            <p>19°C</p>
+                        </div>
+                        <div>
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-cloudy-weather-icon-download-in-svg-png-gif-file-formats--sun-day-morning-pack-nature-icons-1147979.png?f=webp&w=256" alt="Cloudy">
+                            <p>16:00</p>
+                            <p>18°C</p>
+                        </div>
+                        <div>
+                            <img src="https://www.freeiconspng.com/uploads/cloud-rain-weather-icon-25.png" alt="Rainy">
+                            <p>17:00</p>
+                            <p>18°C</p>
+                        </div>
+                    </div>
                 `;
             } catch (error) {
                 resultDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
