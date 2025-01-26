@@ -97,13 +97,11 @@
         }
 
         .result {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 18px;
             background: rgba(255, 255, 255, 0.15);
             padding: 20px;
-            border-radius: 25px;
-            border-top: 5px solid rgb(0, 255, 229);
-            border-bottom: 5px solid rgb(0, 255, 229);
+            border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -121,20 +119,9 @@
             height: auto;
         }
 
-        .forecast {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
-        .forecast div {
-            text-align: center;
-        }
-
-        .forecast div img {
-            width: 40px;
-            height: auto;
+        .error {
+            color: #ff4d4d;
+            font-weight: bold;
         }
 
         .footer {
@@ -157,7 +144,7 @@
 <body>
     <div class="container">
         <div class="weather-header">
-            <img src="https://purepng.com/public/uploads/large/purepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png" alt="Weather House">
+            <img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png" alt="Weather House">
             <h1>Weather App</h1>
         </div>
         <input type="text" id="location" placeholder="Enter location (e.g., London)" />
@@ -178,7 +165,7 @@
             }
 
             const apiKey = '53dc9bb7e6cf4b789b9142433252601';
-            const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
+            const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
 
             try {
                 const response = await fetch(apiUrl);
@@ -196,23 +183,6 @@
                     <div class="icon"><img src="${iconUrl}" alt="${condition.text}"></div>
                     <p>Temperature: <strong>${temp_c}°C</strong></p>
                     <p>Condition: <strong>${condition.text}</strong></p>
-                    <div class="forecast">
-                        <div>
-                            <img src="https://cdn-icons-png.flaticon.com/512/6198/6198743.png" alt="Sunny">
-                            <p>15:00</p>
-                            <p>19°C</p>
-                        </div>
-                        <div>
-                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-cloudy-weather-icon-download-in-svg-png-gif-file-formats--sun-day-morning-pack-nature-icons-1147979.png?f=webp&w=256" alt="Cloudy">
-                            <p>16:00</p>
-                            <p>18°C</p>
-                        </div>
-                        <div>
-                            <img src="https://www.freeiconspng.com/uploads/cloud-rain-weather-icon-25.png" alt="Rainy">
-                            <p>17:00</p>
-                            <p>18°C</p>
-                        </div>
-                    </div>
                 `;
             } catch (error) {
                 resultDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
